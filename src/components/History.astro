@@ -1,0 +1,214 @@
+---
+// src/components/History.astro
+---
+
+<!-- HISTORY & TIMELINE SECTION -->
+<section id="history" class="section history-section reveal">
+	<div class="section-header">
+		<h2 class="section-title">
+			<span class="lang-id">Perjalanan Jalur Melintasi Zaman</span>
+			<span class="lang-en">The Journey of Jalur Through Time</span>
+		</h2>
+		<a href="#anatomy" class="circular-arrow-btn" aria-label="Selanjutnya">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+		</a>
+	</div>
+
+	<div class="history-grid">
+		<!-- Left Column: Rating & Info -->
+		<div class="history-left">
+			<div class="rating-container">
+				<div class="rating-badge">
+					<span class="star">★</span>
+					<span class="rating-score">4.9</span>
+				</div>
+				<p class="rating-label">
+					<span class="lang-id">Warisan Takbenda Indonesia</span>
+					<span class="lang-en">Indonesian Intangible Heritage</span>
+				</p>
+			</div>
+			
+			<div class="author-card glass-card">
+				<div class="avatar-wrapper">
+					<div class="avatar-placeholder">DP</div>
+					<span class="badge-dot"></span>
+				</div>
+				<div>
+					<h4 class="author-name">Datuk Panglimo</h4>
+					<p class="author-role">
+						<span class="lang-id">Pawang Jalur Kuantan</span>
+						<span class="lang-en">Kuantan Boat Shaman</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Center Column: Carving Image with Glass Overlay -->
+		<div class="history-center">
+			<div class="image-card">
+				<img src="/images/ukiran.png" alt="Ukiran perahu jalur" class="carving-img" />
+				<div class="image-overlay-card glass-card">
+					<div class="overlay-details">
+						<h3 class="overlay-title">Siposan Rimbo</h3>
+						<p class="overlay-subtitle">
+							<span class="lang-id">Jalur Juara Legendaris</span>
+							<span class="lang-en">Legendary Champion Boat</span>
+						</p>
+					</div>
+					<button class="info-btn" aria-label="Info" title="Detail Jalur">i</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Right Column: Stats -->
+		<div class="history-right">
+			<div class="stat-card glass-card">
+				<h3 class="stat-number">100k+</h3>
+				<p class="stat-desc">
+					<span class="lang-id">Penonton berkumpul memadati Tepian Narosa setiap bulan Agustus</span>
+					<span class="lang-en">Spectators pack Tepian Narosa every single August</span>
+				</p>
+			</div>
+			<div class="action-badges">
+				<a href="#anatomy" class="capsule-link">
+					<span class="lang-id">PANDUAN ANATOMI PERAHU</span>
+					<span class="lang-en">BOAT ANATOMY GUIDE</span>
+				</a>
+				<span class="adventure-tag">CULTURE & SPECTACLE</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Cultural Timeline (SDG 11 - Culture Verse Core) -->
+	<div class="cultural-timeline-wrapper">
+		<div class="timeline-scroll-indicator">
+			<button class="timeline-nav-btn prev-btn" aria-label="Scroll Left" title="Sebelumnya">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+			</button>
+			<span class="timeline-indicator-title">
+				<span class="lang-id">Lini Masa Sejarah</span>
+				<span class="lang-en">Historical Timeline</span>
+			</span>
+			<button class="timeline-nav-btn next-btn" aria-label="Scroll Right" title="Selanjutnya">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+			</button>
+		</div>
+
+		<div class="timeline-track">
+			<div class="timeline-prog-line"></div>
+			
+			<!-- Milestone 1 -->
+			<div class="timeline-node">
+				<div class="timeline-dot"></div>
+				<div class="timeline-year">Abad ke-17</div>
+				<div class="timeline-box glass-card">
+					<h4 class="timeline-box-title">
+						<span class="lang-id">Sarana Transportasi Purba</span>
+						<span class="lang-en">Ancient Transportation</span>
+					</h4>
+					<p class="timeline-box-text">
+						<span class="lang-id">Jalur kayu utuh log tunggal raksasa berfungsi sebagai alat penghubung vital desa di sepanjang Sungai Kuantan.</span>
+						<span class="lang-en">Giant single-log wooden boats served as the primary transport connecting villages along Kuantan River.</span>
+					</p>
+				</div>
+			</div>
+			
+			<!-- Milestone 2 -->
+			<div class="timeline-node">
+				<div class="timeline-dot"></div>
+				<div class="timeline-year">1903</div>
+				<div class="timeline-box glass-card">
+					<h4 class="timeline-box-title">
+						<span class="lang-id">Kelahiran Ajang Lomba</span>
+						<span class="lang-en">Birth of the Competition</span>
+					</h4>
+					<p class="timeline-box-text">
+						<span class="lang-id">Mulai bertransformasi menjadi ajang perlombaan resmi di Teluk Kuantan, melahirkan tradisi pacu dayung.</span>
+						<span class="lang-en">Transformed into an official racing festival in Teluk Kuantan, giving rise to the rowing competition.</span>
+					</p>
+				</div>
+			</div>
+			
+			<!-- Milestone 3 -->
+			<div class="timeline-node">
+				<div class="timeline-dot"></div>
+				<div class="timeline-year">1945</div>
+				<div class="timeline-box glass-card">
+					<h4 class="timeline-box-title">
+						<span class="lang-id">Simbol Kemerdekaan RI</span>
+						<span class="lang-en">Symbol of Independence</span>
+					</h4>
+					<p class="timeline-box-text">
+						<span class="lang-id">Diintegrasikan dengan perayaan proklamasi kemerdekaan nasional guna memupuk persatuan sosial warga.</span>
+						<span class="lang-en">Integrated with national independence celebrations to foster community solidarity and patriotism.</span>
+					</p>
+				</div>
+			</div>
+			
+			<!-- Milestone 4 -->
+			<div class="timeline-node">
+				<div class="timeline-dot"></div>
+				<div class="timeline-year">2014</div>
+				<div class="timeline-box glass-card">
+					<h4 class="timeline-box-title">
+						<span class="lang-id">Pengakuan WBTb Nasional</span>
+						<span class="lang-en">Intangible Heritage Status</span>
+					</h4>
+					<p class="timeline-box-text">
+						<span class="lang-id">Resmi diakui negara sebagai Warisan Budaya Takbenda (WBTb) Nasional oleh Kemendikbud RI.</span>
+						<span class="lang-en">Legally designated as a National Intangible Cultural Heritage by the Indonesian Ministry of Education.</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Milestone 5 -->
+			<div class="timeline-node">
+				<div class="timeline-dot"></div>
+				<div class="timeline-year">Kini</div>
+				<div class="timeline-box glass-card highlight-node">
+					<h4 class="timeline-box-title">
+						<span class="lang-id">Warisan Dunia & Viralitas</span>
+						<span class="lang-en">Global Heritage & Virality</span>
+					</h4>
+					<p class="timeline-box-text">
+						<span class="lang-id">Viral global berkat gerakan tari keseimbangan atletik anak pacu di ujung perahu, memukau audiens dunia.</span>
+						<span class="lang-en">Gained international spotlight through the athletic balancing dance at the prow, captivating global audiences.</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// ponytail: scroll timeline slider smoothly with prev/next buttons
+	const timelineTrack = document.querySelector('.timeline-track');
+	const prevTimelineBtn = document.querySelector('.cultural-timeline-wrapper .prev-btn') as HTMLElement;
+	const nextTimelineBtn = document.querySelector('.cultural-timeline-wrapper .next-btn') as HTMLElement;
+
+	if (timelineTrack && prevTimelineBtn && nextTimelineBtn) {
+		prevTimelineBtn.addEventListener('click', () => {
+			timelineTrack.scrollBy({ left: -320, behavior: 'smooth' });
+		});
+		nextTimelineBtn.addEventListener('click', () => {
+			timelineTrack.scrollBy({ left: 320, behavior: 'smooth' });
+		});
+
+		// Hide/fade buttons based on scroll position
+		const updateBtnVisibility = () => {
+			const scrollLeft = timelineTrack.scrollLeft;
+			const maxScrollLeft = timelineTrack.scrollWidth - timelineTrack.clientWidth;
+			
+			prevTimelineBtn.style.opacity = scrollLeft <= 10 ? '0.3' : '1';
+			prevTimelineBtn.style.pointerEvents = scrollLeft <= 10 ? 'none' : 'auto';
+			
+			nextTimelineBtn.style.opacity = scrollLeft >= maxScrollLeft - 10 ? '0.3' : '1';
+			nextTimelineBtn.style.pointerEvents = scrollLeft >= maxScrollLeft - 10 ? 'none' : 'auto';
+		};
+
+		timelineTrack.addEventListener('scroll', updateBtnVisibility);
+		window.addEventListener('resize', updateBtnVisibility);
+		// Initial call
+		setTimeout(updateBtnVisibility, 300);
+	}
+</script>

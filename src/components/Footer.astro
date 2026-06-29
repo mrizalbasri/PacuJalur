@@ -1,0 +1,80 @@
+---
+// src/components/Footer.astro
+---
+
+<!-- CALL TO ACTION & NEWSLETTER SECTION -->
+<section id="subscribe" class="section cta-section reveal">
+	<div class="cta-container">
+		<div class="cta-left">
+			<p class="cta-tagline">
+				<span class="lang-id">Kami menawarkan kebanggaan budaya. Fokus pada pelestarian berkelanjutan.</span>
+				<span class="lang-en">We offer cultural pride. Focus on sustainable preservation.</span>
+			</p>
+		</div>
+		<div class="cta-right">
+			<div class="links-columns">
+				<div class="links-col">
+					<a href="#" class="footer-link">Home</a>
+					<a href="#history" class="footer-link">Sejarah</a>
+					<a href="#anatomy" class="footer-link">Anatomi</a>
+					<a href="#benefits" class="footer-link">Dampak</a>
+				</div>
+				<div class="links-col">
+					<a href="https://kemdikbud.go.id" target="_blank" class="footer-link">Kemdikbud</a>
+					<a href="https://kuansing.go.id" target="_blank" class="footer-link">Kuansing Kab</a>
+					<a href="https://riau.go.id" target="_blank" class="footer-link">Provinsi Riau</a>
+				</div>
+			</div>
+			
+			<!-- Form Subscription -->
+			<form id="subscribe-form" class="subscribe-form">
+				<input type="email" placeholder="emailanda@gmail.com" required class="subscribe-input" />
+				<button type="submit" class="subscribe-submit-btn" aria-label="Kirim">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+				</button>
+			</form>
+		</div>
+	</div>
+</section>
+
+<!-- Footer with giant stylized background text -->
+<footer class="main-footer">
+	<div class="giant-bg-text">pacu jalur</div>
+	<div class="footer-bottom-bar">
+		<p class="copyright">© 2026 SDGs Creative Web Competition. Culture Verse SDG 11.</p>
+		<button class="footer-plus-btn" aria-label="Kembali ke atas" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">+</button>
+	</div>
+</footer>
+
+<script>
+	// ponytail: simple scroll-reveal animation observer
+	const reveals = document.querySelectorAll('.reveal');
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('active');
+			}
+		});
+	}, { threshold: 0.05 });
+
+	reveals.forEach(el => observer.observe(el));
+
+	// Form submission alert
+	const subForm = document.getElementById('subscribe-form');
+	if (subForm) {
+		subForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const emailEl = subForm.querySelector('input');
+			if (!emailEl) return;
+			const email = emailEl.value;
+			const currentLang = document.body.className.includes('en') ? 'en' : 'id';
+			
+			if (currentLang === 'en') {
+				alert(`Thank you! ${email} has been subscribed to Pacu Jalur preservation updates.`);
+			} else {
+				alert(`Terima kasih! ${email} telah didaftarkan untuk mendapatkan pembaruan pelestarian Pacu Jalur.`);
+			}
+			subForm.reset();
+		});
+	}
+</script>

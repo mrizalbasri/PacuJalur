@@ -1,0 +1,135 @@
+---
+// src/components/Anatomy.astro
+---
+
+<!-- ANATOMY / INTERACTIVE SECTION -->
+<section id="anatomy" class="section anatomy-section reveal">
+	<div class="anatomy-grid">
+		<!-- Left Column: Big Oval Image Frame with Elegant Borders -->
+		<div class="anatomy-left">
+			<div class="oval-frame-container">
+				<div class="oval-frame-border"></div>
+				<div class="oval-frame">
+					<img src="/images/tari.png" alt="Tukang Tari di Kepala Jalur" class="oval-img" />
+					<div class="oval-badge glass-card">
+						<span>KREATIF</span>
+						<span>•</span>
+						<span>INTERAKTIF</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Right Column: Interactive Role Selector -->
+		<div class="anatomy-right">
+			<div class="anatomy-header">
+				<span class="section-subtitle">(FILOSOFI PERAN)</span>
+				<h2 class="section-title">
+					<span class="lang-id">Harmoni di atas air</span>
+					<span class="lang-en">Harmony on the water</span>
+				</h2>
+				<p class="section-desc">
+					<span class="lang-id">Kecepatan perahu tidak ada artinya tanpa keselarasan peran. Klik peran untuk mengetahui tanggung jawab mereka:</span>
+					<span class="lang-en">Speed is nothing without alignment. Click the roles to learn about their responsibilities:</span>
+				</p>
+			</div>
+
+			<!-- Tab buttons -->
+			<div class="anatomy-tabs">
+				<button class="tab-btn active" data-tab="concang">
+					<span class="tab-indicator"></span>
+					<span class="tab-num">01</span>
+					<span class="tab-title">Tukang Concang</span>
+				</button>
+				<button class="tab-btn" data-tab="onjai">
+					<span class="tab-indicator"></span>
+					<span class="tab-num">02</span>
+					<span class="tab-title">Tukang Onjai</span>
+				</button>
+				<button class="tab-btn" data-tab="tari">
+					<span class="tab-indicator"></span>
+					<span class="tab-num">03</span>
+					<span class="tab-title">Tukang Tari</span>
+				</button>
+				<button class="tab-btn" data-tab="pinggang">
+					<span class="tab-indicator"></span>
+					<span class="tab-num">04</span>
+					<span class="tab-title">Tukang Pinggang</span>
+				</button>
+			</div>
+
+			<!-- Tab contents -->
+			<div class="tab-contents glass-card">
+				<!-- Content 1: Tukang Concang -->
+				<div class="tab-pane active" id="pane-concang">
+					<h3 class="pane-title">
+						<span class="lang-id">Tukang Concang — Sang Pemberi Aba-Aba</span>
+						<span class="lang-en">Tukang Concang — The Pace Commander</span>
+					</h3>
+					<p class="pane-text">
+						<span class="lang-id">Berdiri di area depan perahu, bertugas meneriakkan komando dan menepuk bilah perahu untuk menyamakan ritme kayuhan. Kejelasan suara dan ketegasan Tukang Concang adalah kunci sinkronisasi puluhan Anak Pacu.</span>
+						<span class="lang-en">Stands at the front section, responsible for shouting commands and clapping the hull to synchronize rowing rhythms. The clarity of their voice is crucial for matching the pace of dozens of rowers.</span>
+					</p>
+				</div>
+
+				<!-- Content 2: Tukang Onjai -->
+				<div class="tab-pane" id="pane-onjai">
+					<h3 class="pane-title">
+						<span class="lang-id">Tukang Onjai — Pegoyang Irama Buritan</span>
+						<span class="lang-en">Tukang Onjai — The Stern Rhythm Master</span>
+					</h3>
+					<p class="pane-text">
+						<span class="lang-id">Duduk di ujung belakang perahu. Ia menggoyang-goyangkan badannya secara ritmis naik-turun untuk memanfaatkan daya lentur kayu log tunggal, mendorong buritan ke depan sehingga perahu melesat bagai melompat di atas riak air.</span>
+						<span class="lang-en">Seated at the very stern. They bounce their weight rhythmically up and down to exploit the natural elasticity of the single-log wood, propelling the stern forward so the boat glides faster over waves.</span>
+					</p>
+				</div>
+
+				<!-- Content 3: Tukang Tari -->
+				<div class="tab-pane" id="pane-tari">
+					<h3 class="pane-title">
+						<span class="lang-id">Tukang Tari — Penyeimbang Haluan</span>
+						<span class="lang-en">Tukang Tari — The Prow Balancing Dancer</span>
+					</h3>
+					<p class="pane-text">
+						<span class="lang-id">Berdiri bebas tanpa pengaman di ujung haluan perahu yang sempit dan bergoyang. Ia melakukan tarian adat penuh keseimbangan di tengah cipratan ombak deras, sebagai tanda visual visualisasi laju kecepatan maksimal.</span>
+						<span class="lang-en">Stands unsecured on the narrow, high-motion tip of the prow. Performing a graceful traditional balancing dance amidst rapids, they serve as a visual indicator of maximum speed and river alignment.</span>
+					</p>
+				</div>
+
+				<!-- Content 4: Tukang Pinggang -->
+				<div class="tab-pane" id="pane-pinggang">
+					<h3 class="pane-title">
+						<span class="lang-id">Tukang Pinggang — Kemudi Tengah & Buritan</span>
+						<span class="lang-en">Tukang Pinggang — The Steersman</span>
+					</h3>
+					<p class="pane-text">
+						<span class="lang-id">Berada di bagian tengah dan belakang perahu untuk mengarahkan haluan. Memegang dayung panjang sebagai kemudi dinamis agar perahu tetap stabil dan lurus di lintasannya, menghindari tabrakan di tengah arus deras Tepian Narosa.</span>
+						<span class="lang-en">Positioned along the middle and rear to steer the giant canoe. Using long oars as rudders, they maintain straight-line stability in heavy river currents, preventing high-speed collisions.</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// ponytail: interactive anatomy tabs
+	const tabButtons = document.querySelectorAll('.tab-btn');
+	const tabPanes = document.querySelectorAll('.tab-pane');
+
+	tabButtons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const tabId = btn.getAttribute('data-tab');
+			if (!tabId) return;
+
+			// Deactivate other tabs
+			tabButtons.forEach(b => b.classList.remove('active'));
+			tabPanes.forEach(p => p.classList.remove('active'));
+
+			// Activate selected
+			btn.classList.add('active');
+			const pane = document.getElementById(`pane-${tabId}`);
+			if (pane) pane.classList.add('active');
+		});
+	});
+</script>
