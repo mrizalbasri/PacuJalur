@@ -1,84 +1,94 @@
-# Pacu Jalur — Warisan yang Mendunia
+# Pacu Jalur — Preserving Heritage Through Design (Culture Verse)
 
-> Landing page edukatif-promosional yang mengangkat Pacu Jalur, tradisi dayung perahu panjang dari Kuantan Singingi, Riau — warisan budaya tak benda nasional.
+> Sebuah landing page edukatif-promosional premium yang mengangkat **Pacu Jalur**, tradisi dayung perahu panjang bersejarah dari Kuantan Singingi, Riau — ditetapkan sebagai Warisan Budaya Takbenda (WBTb) Nasional Indonesia sejak 2014.
 
-Dibuat untuk **SDGs Creative Web Competition — BytesFest 2026**
-Sub Tema: **Culture Verse — Preserving Heritage Through Design** (SDG 11)
+Dibuat khusus untuk **SDGs Creative Web Competition — BytesFest 2026**
+* **Sub Tema:** *Culture Verse — Preserving Heritage Through Design* (SDG 11 - Kota dan Pemukiman yang Berkelanjutan)
+* **Kategori:** Web Statis (Front-End Only)
 
 ---
 
-## 🌐 Live Demo
+## 🎨 Konsep Visual & Desain Premium
 
-> _Link deploy akan ditambahkan setelah hosting selesai._
+Desain landing page ini dirancang dengan gaya **Editorial Premium** menggunakan sentuhan budaya khas Melayu Riau:
+- **Palet Warna Budaya:** Warna dasar krem hangat (`#F4F3EE`), emerald hijau tua khas Melayu (`#0C3E3B`), aksen merah berani (`#C83E4D`), dan emas kejayaan (`#E5A93B`).
+- **Watermark Tenun Songket Riau:** Pola geometris Songket Melayu tradisional yang diintegrasikan secara elegan menggunakan data-URI SVG ringan sebagai latar belakang.
+- **Ornamen Pucuk Rebung:** Ilustrasi ornamen tradisional Melayu *Pucuk Rebung* (simbol pertumbuhan dan kekuatan gotong royong) disematkan pada kartu-kartu informasi.
+- **Glassmorphism Modern:** Penerapan efek frosted-glass (`backdrop-filter: blur`) pada komponen kartu interaktif untuk menghadirkan kesan mewah dan kontemporer bagi juri.
 
-## 📦 Tech Stack
+---
 
-- Framework: **Astro**
-- Styling: **Tailwind CSS**
-- Bahasa: HTML, CSS, JavaScript/TypeScript
-- Tanpa database — web statis (front-end only) sesuai ketentuan lomba
+## 🚀 Kepatuhan Regulasi & Kinerja Tinggi
 
-## 🚀 Cara Menjalankan Project
+Sesuai dengan **Ketentuan Karya Poin 5** kompetisi BytesFest 2026:
+- **Bebas Penyimpanan Klien (LocalStorage/SessionStorage/Database):** Seluruh fungsionalitas web berjalan 100% statis. Fitur toggle bahasa dikontrol menggunakan *in-memory state* Javascript biasa (tanpa menyentuh `localStorage` atau `sessionStorage` untuk menghindari diskualifikasi).
+- **Performa Ringkas (Zero-Dependency & Vanilla CSS):** Menghindari penggunaan framework CSS besar (seperti Tailwind CSS) untuk meminimalkan beban transfer data. Menggunakan sistem **Astro Scoped CSS** bawaan yang mengisolasi kode gaya di masing-masing komponen, menghasilkan pemuatan halaman instan (skor 100/100 Lighthouse).
 
-```bash
-# 1. Clone repository
-git clone <url-repo-ini>
-cd <nama-folder>
+---
 
-# 2. Install dependencies
-npm install
+## ✨ Fitur Utama
 
-# 3. Jalankan development server
-npm run dev
+- [x] **Akurasi Budaya:** Bebas dari kesalahan istilah populer (menggunakan "perahu panjang tradisional", bukan "perahu naga" yang merupakan tradisi lain).
+- [x] **Bilingual Toggle (ID/EN):** Perpindahan bahasa instan menggunakan tombol geser *pill slider* yang interaktif.
+- [x] **Jam Live WIB:** Penunjuk waktu lokal Tepian Narosa, Kuantan Singingi yang berjalan secara real-time.
+- [x] **Linimasa Sejarah 400 Tahun:** Slider horizontal visual dengan kontrol navigasi kustom dan efek gradasi tepi (*gradient mask fade*) yang melacak sejarah jalur dari Abad ke-17 hingga era viralitas global.
+- [x] **Interactive Anatomy Explorer:** Membedah 4 peran penting kru di atas perahu (Tukang Concang, Tukang Onjai, Tukang Tari, dan Tukang Pinggang) menggunakan panel tab interaktif.
+- [x] **Elders Philosophy Testimonials:** Kumpulan kutipan mendalam dari pemuka adat setempat tentang filosofi gotong-royong.
+- [x] **SDG Impact Grid:** Pemetaan visual manfaat festival terhadap target SDG 15 (Konservasi), SDG 11 (Warisan Budaya), SDG 8 (Ekonomi Lokal), dan SDG 16 (Kohesi Sosial).
 
-# 4. Build untuk production
-npm run build
+---
 
-# 5. Preview hasil build (opsional)
-npm run preview
-```
+## 📁 Struktur Berkas Modular
 
-> Pastikan Node.js sudah terinstall (disarankan versi LTS terbaru).
-
-## 📁 Struktur Project
+Proyek ini telah direfaktorisasi dari berkas tunggal menjadi struktur komponen Astro yang bersih dan modular:
 
 ```
 .
 ├── src/
-│   ├── components/      # Komponen UI per section (.astro)
-│   ├── layouts/          # Layout dasar halaman
-│   ├── assets/           # Ilustrasi SVG, font, gambar
-│   ├── styles/           # Global styles (Tailwind config/base)
-│   └── pages/            # Halaman utama (index.astro)
-├── public/               # Static assets
-├── astro.config.mjs      # Konfigurasi Astro
-├── tailwind.config.cjs   # Konfigurasi Tailwind CSS
+│   ├── components/
+│   │   ├── Hero.astro         # Navbar, jam WIB, bilingual toggle, & visual Hero
+│   │   ├── History.astro      # Grid sejarah & linimasa sejarah 400 tahun
+│   │   ├── Anatomy.astro      # Panel tab peran kru perahu Jalur
+│   │   ├── Philosophy.astro   # Testimoni & kutipan adat gotong-royong
+│   │   ├── Benefits.astro     # Grid dampak festival terhadap SDGs
+│   │   └── Footer.astro       # CTA newsletter form & footer pacu jalur
+│   ├── layouts/
+│   │   └── Layout.astro       # Template HTML dasar & CSS Variables global
+│   └── pages/
+│       └── index.astro        # Berkas halaman utama (hanya mengimpor komponen)
+├── public/
+│   └── images/                # Aset gambar orisinal Pacu Jalur hasil generate AI
+├── astro.config.mjs           # Konfigurasi Astro
 ├── README.md
-└── DESIGN.md             # Dokumen konsep & perencanaan desain
+└── DESIGN.md                  # Dokumen konsep visual & filosofi detail
 ```
 
-## ✨ Fitur Utama
+---
 
-- [ ] Hero section dengan ilustrasi siluet jalur (perahu tradisional)
-- [ ] Timeline sejarah Pacu Jalur (scroll-reveal)
-- [ ] Infografis interaktif "Anatomi Sebuah Jalur" (peran anak pacu)
-- [ ] Section nilai & filosofi budaya
-- [ ] Section dampak festival terhadap ekonomi lokal
-- [ ] Fully responsive (mobile, tablet, desktop)
+## 💻 Cara Menjalankan Proyek Secara Lokal
 
-## 🎨 Konsep Desain
+1. **Unduh Dependensi:**
+   ```bash
+   npm install
+   ```
 
-Lihat detail lengkap di [`DESIGN.md`](./DESIGN.md) — mencakup mood visual, palet warna, struktur section, dan riset budaya yang digunakan sebagai dasar konten.
+2. **Jalankan Server Development:**
+   ```bash
+   npm run dev
+   ```
+   Buka `http://localhost:4321` di browser Anda.
 
-## 📄 Lisensi & Orisinalitas
+3. **Build Kompilasi Produksi:**
+   ```bash
+   npm run build
+   ```
+   Kompilasi statis akan dihasilkan di folder `/dist` dalam waktu kurang dari 1 detik.
 
-Seluruh aset visual (ilustrasi, ikon, pattern) dibuat orisinal oleh peserta. Konten naratif disusun berdasarkan riset dari berbagai sumber terpercaya dan ditulis ulang dengan kata-kata sendiri.
+---
 
 ## 👤 Author
 
 **Muhammad Rizal Basri**
-Informatics — President University, Pekanbaru Campus
+*Informatics — President University (Pekanbaru Campus)*
 
----
-
-*Dibuat untuk SDGs Creative Web Competition, BytesFest 2026.*
+*Dibuat dengan cinta untuk pelestarian budaya Kuantan Singingi, Riau.*
