@@ -22,7 +22,7 @@ Desain landing page ini dirancang dengan gaya **Editorial Premium** menggunakan 
 
 Sesuai dengan **Ketentuan Karya Poin 5** kompetisi BytesFest 2026:
 - **Bebas Penyimpanan Klien (LocalStorage/SessionStorage/Database):** Seluruh fungsionalitas web berjalan 100% statis. Fitur toggle bahasa dikontrol menggunakan *in-memory state* Javascript biasa (tanpa menyentuh `localStorage` atau `sessionStorage` untuk menghindari diskualifikasi).
-- **Performa Ringkas (Zero-Dependency & Vanilla CSS):** Menghindari penggunaan framework CSS besar (seperti Tailwind CSS) untuk meminimalkan beban transfer data. Menggunakan sistem **Astro Scoped CSS** bawaan yang mengisolasi kode gaya di masing-masing komponen, menghasilkan pemuatan halaman instan (skor 100/100 Lighthouse).
+- **Performa Ringkas & Modern (Tailwind CSS v4):** Terintegrasi penuh menggunakan **Tailwind CSS v4** melalui Vite plugin resmi Astro. Gaya visual dikompilasi secara ultra-cepat, menggabungkan kepraktisan *utility classes* dengan ornamen budaya tradisional yang tersemat rapi.
 
 ---
 
