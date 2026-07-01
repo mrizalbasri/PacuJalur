@@ -3,133 +3,947 @@
 ---
 
 <!-- ANATOMY / INTERACTIVE SECTION -->
-<section id="anatomy" class="section anatomy-section reveal">
-	<div class="anatomy-grid">
-		<!-- Left Column: Big Oval Image Frame with Elegant Borders -->
-		<div class="anatomy-left">
-			<div class="oval-frame-container">
-				<div class="oval-frame-border"></div>
-				<div class="oval-frame">
-					<img src="/images/tari.png" alt="Tukang Tari di Kepala Jalur" class="oval-img" />
-					<div class="oval-badge glass-card">
-						<span>KREATIF</span>
-						<span>•</span>
-						<span>INTERAKTIF</span>
+<section id="anatomy" class="section reveal relative overflow-hidden py-24 px-6 md:px-10 my-16 mx-auto max-w-[1300px] rounded-[40px] border border-[#0C3E3B]/5 bg-[radial-gradient(circle_at_center,rgba(12,62,59,0.02)_0%,rgba(12,62,59,0.07)_100%)]">
+	<div class="flex flex-col gap-14 w-full">
+		<!-- Section Header -->
+		<div class="text-center max-w-[800px] mx-auto">
+			<span class="text-xs font-extrabold text-[#C83E4D] tracking-[0.2em] block mb-2 uppercase">(ANATOMI PERAHU)</span>
+			<h2 class="text-4xl md:text-[2.75rem] font-extrabold text-[#0C3E3B] leading-tight tracking-tight">
+				<span class="lang-id">Anatomi & Filosofi Peran Jalur</span>
+				<span class="lang-en">Anatomy & Philosophy of Jalur Roles</span>
+			</h2>
+			<p class="text-[#5C6B69] text-base md:text-[1.05rem] leading-relaxed mt-4 font-medium">
+				<span class="lang-id">Pacu Jalur bukan sekadar balapan; ia adalah simfoni keselarasan peran di atas air. Geser perahu dan klik pin interaktif untuk mempelajari fungsi serta makna mendalam setiap peran:</span>
+				<span class="lang-en">Pacu Jalur is not just a race; it is a symphony of role alignment on water. Scroll the boat and click the interactive pins to learn the function and meaning of each role:</span>
+			</p>
+		</div>
+
+		<!-- Interactive 3D Perspective Boat Viewer Area -->
+		<div class="w-full relative boat-interactive-container">
+			<!-- Scroll Hint -->
+			<div class="flex flex-col items-center gap-2 mb-5 opacity-90 select-none">
+				<span class="text-[0.8rem] font-bold text-[#5C6B69] tracking-wider uppercase">
+					<span class="lang-id">← Geser secara horizontal untuk melihat seluruh perahu (25-30 Meter) →</span>
+					<span class="lang-en">← Scroll horizontally to see the entire boat (25-30 Meters) →</span>
+				</span>
+				<div class="w-[120px] h-[3px] bg-[#0C3E3B]/10 rounded-full overflow-hidden relative">
+					<div class="absolute left-0 top-0 h-full w-[30%] bg-[#E5A93B] rounded-full transition-all duration-100 scroll-progress"></div>
+				</div>
+			</div>
+
+			<!-- Widescreen Viewer Frame - Heights and widths perfectly matched with relative parent to resolve Panzoom containment lock -->
+			<div class="w-full h-[400px] relative overflow-hidden cursor-grab rounded-2xl bg-white/45 border border-white/50 backdrop-blur-md shadow-[inset_0_2px_10px_rgba(12,62,59,0.02)] boat-viewer-scroll" id="boatViewerScroll">
+				<div class="w-[1600px] h-[400px] boat-perspective-wrapper" id="boatPerspective">
+					<div class="relative w-[1600px] h-[400px] boat-canvas-container">
+						<!-- Detailed SVG Boat Illustration -->
+						<svg class="w-full h-full block select-none pointer-events-none" viewBox="0 0 1600 400" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<!-- Boat Wood Gradient -->
+								<linearGradient id="boat-wood" x1="0%" y1="50%" x2="100%" y2="50%">
+									<stop offset="0%" stop-color="#5a381d" />
+									<stop offset="25%" stop-color="#8c5830" />
+									<stop offset="50%" stop-color="#a46d3e" />
+									<stop offset="75%" stop-color="#8c5830" />
+									<stop offset="100%" stop-color="#5a381d" />
+								</linearGradient>
+								
+								<!-- Gold Decoration Gradient -->
+								<linearGradient id="gold-ornament" x1="0%" y1="0%" x2="100%" y2="100%">
+									<stop offset="0%" stop-color="#E5A93B" />
+									<stop offset="50%" stop-color="#FFF3CD" />
+									<stop offset="100%" stop-color="#B87D1B" />
+								</linearGradient>
+
+								<!-- Water Ripples Gradient -->
+								<linearGradient id="water-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+									<stop offset="0%" stop-color="rgba(12, 62, 59, 0.4)" />
+									<stop offset="50%" stop-color="rgba(12, 62, 59, 0.7)" />
+									<stop offset="100%" stop-color="rgba(12, 62, 59, 0.95)" />
+								</linearGradient>
+
+								<!-- Shadow Filter -->
+								<filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+									<feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#051413" flood-opacity="0.35" />
+								</filter>
+							</defs>
+
+							<!-- RIVER WATER BACKGROUND & WAVES -->
+							<g>
+								<path d="M 0,260 C 200,240 400,280 600,260 C 800,240 1000,280 1200,260 C 1400,240 1600,280 1600,260 L 1600,400 L 0,400 Z" fill="url(#water-grad)" opacity="0.6" />
+								<path d="M 0,280 C 300,300 600,260 900,280 C 1200,300 1500,260 1600,270 L 1600,400 L 0,400 Z" fill="#0C3E3B" opacity="0.9" />
+								<path d="M 0,310 C 150,295 300,325 450,310 C 600,295 750,325 900,310 C 1050,295 1200,325 1350,310 C 1500,295 1600,310 1600,310 L 1600,400 L 0,400 Z" fill="rgba(229, 169, 59, 0.15)" />
+							</g>
+
+							<!-- MAIN BOAT STRUCTURE (JALUR) -->
+							<g filter="url(#drop-shadow)">
+								<!-- The Long Sleek Hull -->
+								<path d="M 80,140 
+										 C 85,150 95,190 120,210 
+										 C 160,240 400,250 800,250 
+										 C 1200,250 1440,240 1480,210 
+										 C 1505,190 1515,150 1520,120
+										 C 1520,120 1530,95 1515,90
+										 C 1500,85 1475,170 1440,205
+										 C 1400,225 1200,230 800,230
+										 C 400,230 200,225 160,205
+										 C 125,170 100,85 85,90
+										 C 70,95 80,140 80,140 Z" 
+									  fill="url(#boat-wood)" id="boatHullShape" />
+
+								<!-- Bow (Haluan) Ornament Upward Curve -->
+								<path d="M 80,140 C 70,120 60,70 90,50 C 95,47 100,55 95,65 C 80,95 85,120 90,140 Z" fill="url(#gold-ornament)" />
+								<!-- Stern (Buritan) Ornament Upward Tail -->
+								<path d="M 1520,120 C 1530,100 1540,50 1510,30 C 1505,27 1500,35 1505,45 C 1520,75 1515,100 1510,120 Z" fill="url(#gold-ornament)" />
+
+								<!-- Traditional Engravings (Ukiran) along the Hull sides -->
+								<path d="M 120,210 C 250,225 500,230 800,230 C 1100,230 1350,225 1480,210" fill="none" stroke="url(#gold-ornament)" stroke-width="4" stroke-dasharray="15, 8" opacity="0.85" />
+								<path d="M 160,205 C 300,215 500,220 800,220 C 1100,220 1300,215 1440,205" fill="none" stroke="#C83E4D" stroke-width="2.5" opacity="0.7" />
+							</g>
+
+							<!-- ROWERS (ANAK PACU) & OARS (DAYUNG) -->
+							<g class="rowers-crew">
+								<!-- ROWER 1 -->
+								<g class="rower" transform="translate(0, 5)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 2 -->
+								<g class="rower" transform="translate(100, 11)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 3 -->
+								<g class="rower" transform="translate(200, 16)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 4 -->
+								<g class="rower" transform="translate(360, 21)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 5 -->
+								<g class="rower" transform="translate(460, 23)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 6 -->
+								<g class="rower" transform="translate(560, 24)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 7 -->
+								<g class="rower" transform="translate(660, 23)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 8 -->
+								<g class="rower" transform="translate(760, 21)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 9 -->
+								<g class="rower" transform="translate(860, 18)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 10 -->
+								<g class="rower" transform="translate(960, 15)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 11 -->
+								<g class="rower" transform="translate(1060, 11)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								</g>
+
+								<!-- ROWER 12 -->
+								<g class="rower" transform="translate(1160, 5)">
+									<line x1="225" y1="210" x2="185" y2="285" stroke="#FFF" stroke-width="4.5" filter="url(#drop-shadow)" />
+									<polygon points="180,280 190,290 170,310 160,300" fill="#FFF" stroke="#E5A93B" stroke-width="0.5" />
+									<path d="M 235,190 Q 215,200 212,210" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+									<path d="M 232,208 L 244,208 L 242,192 L 230,192 Z" fill="#C83E4D" />
+									<path d="M 232,208 L 244,208 L 240,214 L 234,214 Z" fill="#121E1C" />
+									<circle cx="236" cy="183" r="8" fill="#F4D0D2" />
+									<path d="M 228,181 Q 236,174 244,181 L 240,186 L 232,186 Z" fill="#C83E4D" />
+									<path d="M 228,183 L 223,188 L 225,192 Z" fill="#C83E4D" />
+									<path d="M 242,193 Q 224,202 216,212" fill="none" stroke="#F4D0D2" stroke-width="4" stroke-linecap="round" />
+								</g>
+							</g>
+
+							<!-- COMMANDER (TUKANG CONCANG) -->
+							<g class="tukang-concang-avatar" transform="translate(0, 42)" filter="url(#drop-shadow)">
+								<path d="M 504,180 L 498,193" stroke="#121E1C" stroke-width="6.5" stroke-linecap="round" />
+								<path d="M 516,180 L 522,193" stroke="#121E1C" stroke-width="6.5" stroke-linecap="round" />
+								<path d="M 499,178 L 521,178 L 518,152 L 502,152 Z" fill="#121E1C" />
+								<path d="M 499,170 L 521,170 L 519,179 L 501,179 Z" fill="#C83E4D" />
+								<path d="M 499,173 L 521,173" stroke="url(#gold-ornament)" stroke-width="1.5" />
+								<path d="M 502,152 L 518,152 L 514,159 L 506,159 Z" fill="url(#gold-ornament)" />
+								<circle cx="510" cy="144" r="7.5" fill="#F4D0D2" />
+								<path d="M 504,139 C 504,139 511,126 518,139 Z" fill="#121E1C" />
+								<path d="M 507,139 L 515,139 L 511,131 Z" fill="url(#gold-ornament)" />
+								<path d="M 517,155 C 527,150 531,139 529,134" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								<polygon points="528,131 538,126 535,138" fill="url(#gold-ornament)" />
+								<path d="M 501,155 C 492,158 488,168 492,172" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+							</g>
+
+							<!-- PROW DANCER (TOGAK LUAN / TUKANG TARI) -->
+							<g class="tukang-tari-avatar" filter="url(#drop-shadow)">
+								<path d="M 114,136 L 110,165" stroke="#121E1C" stroke-width="7" fill="none" stroke-linecap="round" />
+								<path d="M 122,136 C 128,142 133,142 130,154" stroke="#121E1C" stroke-width="7" fill="none" stroke-linecap="round" />
+								<circle cx="110" cy="167" r="3.5" fill="#F4D0D2" />
+								<circle cx="130" cy="156" r="3.5" fill="#F4D0D2" />
+								<path d="M 111,136 L 125,136 L 126,108 L 110,108 Z" fill="#121E1C" />
+								<path d="M 109,126 L 127,126 L 125,138 L 111,138 Z" fill="#C83E4D" />
+								<path d="M 109,130 L 127,130" stroke="url(#gold-ornament)" stroke-width="1.5" />
+								<path d="M 110,108 L 126,108 L 122,114 L 114,114 Z" fill="url(#gold-ornament)" />
+								<circle cx="118" cy="98" r="8.5" fill="#F4D0D2" />
+								<rect x="118" y="95" width="8" height="3" rx="0.5" fill="#000" />
+								<path d="M 111,92 C 111,92 118,76 125,92 Z" fill="#121E1C" />
+								<path d="M 114,92 L 122,92 L 118,83 Z" fill="url(#gold-ornament)" />
+								<path d="M 110,111 C 98,102 86,98 84,93" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								<path d="M 126,113 C 138,113 145,109 152,105" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+							</g>
+
+							<!-- RHYTHM BOUNCER (TUKANG ONJAI) -->
+							<g class="tukang-pinggang-avatar" filter="url(#drop-shadow)">
+								<path d="M 1472,168 L 1466,196" stroke="#121E1C" stroke-width="6.5" stroke-linecap="round" />
+								<path d="M 1482,168 L 1488,196" stroke="#121E1C" stroke-width="6.5" stroke-linecap="round" />
+								<circle cx="1466" cy="198" r="3.5" fill="#F4D0D2" />
+								<circle cx="1488" cy="198" r="3.5" fill="#F4D0D2" />
+								<path d="M 1470,168 L 1484,168 L 1484,142 L 1470,142 Z" fill="#121E1C" />
+								<path d="M 1468,158 L 1486,158 L 1484,169 L 1470,169 Z" fill="#C83E4D" />
+								<path d="M 1468,162 L 1486,162" stroke="url(#gold-ornament)" stroke-width="1" />
+								<path d="M 1470,142 L 1484,142 L 1481,148 L 1473,148 Z" fill="url(#gold-ornament)" />
+								<circle cx="1477" cy="132" r="7.5" fill="#F4D0D2" />
+								<path d="M 1471,127 C 1471,127 1477,114 1483,127 Z" fill="#121E1C" />
+								<path d="M 1474,127 L 1480,127 L 1477,120 Z" fill="url(#gold-ornament)" />
+								<path d="M 1470,144 C 1458,136 1452,142 1454,148" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+								<path d="M 1484,144 C 1496,136 1502,142 1500,148" fill="none" stroke="#F4D0D2" stroke-width="4.5" stroke-linecap="round" />
+							</g>
+						</svg>
+
+						<!-- GLOWING INTERACTIVE HOTSPOT PINS -->
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin active" style="left: 9.5%; top: 25%;" data-pin="tari" aria-label="Tukang Tari">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">01</span>
+						</button>
+
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin" style="left: 31.8%; top: 32%;" data-pin="concang" aria-label="Tukang Concang">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">02</span>
+						</button>
+
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin" style="left: 49.3%; top: 44%;" data-pin="crew" aria-label="Anak Pacu">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">03</span>
+						</button>
+
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin" style="left: 65%; top: 62%;" data-pin="dayung" aria-label="Dayung">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">04</span>
+						</button>
+
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin" style="left: 42%; top: 56%;" data-pin="jalur" aria-label="Badan Perahu">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">05</span>
+						</button>
+
+						<button class="absolute w-8 h-8 rounded-full bg-[#0C3E3B] border-2 border-white text-white font-heading font-extrabold text-xs flex items-center justify-center cursor-pointer shadow-lg z-10 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 translate-z-[20px] hotspot-pin" style="left: 90.5%; top: 32%;" data-pin="pinggang" aria-label="Tukang Onjai">
+							<span class="pulse-ring"></span>
+							<span class="pin-dot">06</span>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Right Column: Interactive Role Selector -->
-		<div class="anatomy-right">
-			<div class="anatomy-header">
-				<span class="section-subtitle">(FILOSOFI PERAN)</span>
-				<h2 class="section-title">
-					<span class="lang-id">Harmoni di atas air</span>
-					<span class="lang-en">Harmony on the water</span>
-				</h2>
-				<p class="section-desc">
-					<span class="lang-id">Kecepatan perahu tidak ada artinya tanpa keselarasan peran. Klik peran untuk mengetahui tanggung jawab mereka:</span>
-					<span class="lang-en">Speed is nothing without alignment. Click the roles to learn about their responsibilities:</span>
-				</p>
-			</div>
-
-			<!-- Tab buttons -->
-			<div class="anatomy-tabs">
-				<button class="tab-btn active" data-tab="concang">
-					<span class="tab-indicator"></span>
-					<span class="tab-num">01</span>
-					<span class="tab-title">Tukang Concang</span>
+		<!-- Details & Information Panel (Glassmorphic Interface) -->
+		<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
+			<!-- Role Quick Select Tabs -->
+			<div class="flex flex-row flex-wrap lg:flex-col gap-3 justify-center lg:justify-start">
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab active" data-role="tari">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">01</span>
+					<span class="font-bold text-[0.9rem] role-name">Togak Luan / Tukang Tari</span>
 				</button>
-				<button class="tab-btn" data-tab="onjai">
-					<span class="tab-indicator"></span>
-					<span class="tab-num">02</span>
-					<span class="tab-title">Tukang Onjai</span>
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab" data-role="concang">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">02</span>
+					<span class="font-bold text-[0.9rem] role-name">Tukang Concang</span>
 				</button>
-				<button class="tab-btn" data-tab="tari">
-					<span class="tab-indicator"></span>
-					<span class="tab-num">03</span>
-					<span class="tab-title">Tukang Tari</span>
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab" data-role="jalur">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">03</span>
+					<span class="font-bold text-[0.9rem] role-name">Jalur (Perahu)</span>
 				</button>
-				<button class="tab-btn" data-tab="pinggang">
-					<span class="tab-indicator"></span>
-					<span class="tab-num">04</span>
-					<span class="tab-title">Tukang Pinggang</span>
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab" data-role="crew">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">04</span>
+					<span class="font-bold text-[0.9rem] role-name">Anak Pacu (Pendayung)</span>
+				</button>
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab" data-role="dayung">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">05</span>
+					<span class="font-bold text-[0.9rem] role-name">Dayung</span>
+				</button>
+				<button class="flex-1 lg:flex-none min-w-[180px] bg-white border border-[#0C3E3B]/5 rounded-2xl p-4 cursor-pointer flex items-center gap-4 transition-all duration-300 ease-out shadow-sm hover:translate-x-1.5 hover:border-[#E5A93B] role-tab" data-role="pinggang">
+					<span class="font-heading font-extrabold text-lg opacity-45 transition-colors duration-300 role-num">06</span>
+					<span class="font-bold text-[0.9rem] role-name">Tukang Onjai</span>
 				</button>
 			</div>
 
-			<!-- Tab contents -->
-			<div class="tab-contents glass-card">
-				<!-- Content 1: Tukang Concang -->
-				<div class="tab-pane active" id="pane-concang">
-					<h3 class="pane-title">
-						<span class="lang-id">Tukang Concang — Sang Pemberi Aba-Aba</span>
-						<span class="lang-en">Tukang Concang — The Pace Commander</span>
-					</h3>
-					<p class="pane-text">
-						<span class="lang-id">Berdiri di area depan perahu, bertugas meneriakkan komando dan menepuk bilah perahu untuk menyamakan ritme kayuhan. Kejelasan suara dan ketegasan Tukang Concang adalah kunci sinkronisasi puluhan Anak Pacu.</span>
-						<span class="lang-en">Stands at the front section, responsible for shouting commands and clapping the hull to synchronize rowing rhythms. The clarity of their voice is crucial for matching the pace of dozens of rowers.</span>
-					</p>
-				</div>
+			<!-- Dynamic Content Card - justify-start & no overflow-hidden to prevent vertical text clipping -->
+			<div class="rounded-3xl p-6 md:p-12 min-h-[320px] relative border-l-[6px] border-[#E5A93B] flex flex-col justify-start transition-all duration-400 glass-card anatomy-content-card">
+				<!-- Background watermark -->
+				<div class="absolute right-[-10px] bottom-[-40px] text-[15rem] font-heading font-black text-[#0C3E3B]/3 leading-none select-none pointer-events-none" id="cardWatermark">01</div>
+				
+				<div class="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center relative z-10 text-left">
+					<!-- Card Text Info - Full width and spacious -->
+					<div class="flex-grow flex flex-col w-full">
+						<!-- Title and Tag -->
+						<div class="mb-6 flex flex-col items-start">
+							<span class="text-[0.75rem] font-extrabold text-[#C83E4D] tracking-widest block mb-1.5 uppercase" id="cardRoleType">
+								<span class="lang-id">PERAN DEPAN (HALUAN)</span>
+								<span class="lang-en">FRONT ROLE (PROW)</span>
+							</span>
+							<h3 class="text-3xl font-extrabold text-[#0C3E3B]" id="cardRoleTitle">Togak Luan (Tukang Tari)</h3>
+						</div>
+						
+						<!-- Long Description -->
+						<div class="text-[1rem] leading-relaxed text-[#5C6B69] font-medium w-full" id="cardDescBody">
+							<!-- Dynamic content injected here -->
+						</div>
+					</div>
 
-				<!-- Content 2: Tukang Onjai -->
-				<div class="tab-pane" id="pane-onjai">
-					<h3 class="pane-title">
-						<span class="lang-id">Tukang Onjai — Pegoyang Irama Buritan</span>
-						<span class="lang-en">Tukang Onjai — The Stern Rhythm Master</span>
-					</h3>
-					<p class="pane-text">
-						<span class="lang-id">Duduk di ujung belakang perahu. Ia menggoyang-goyangkan badannya secara ritmis naik-turun untuk memanfaatkan daya lentur kayu log tunggal, mendorong buritan ke depan sehingga perahu melesat bagai melompat di atas riak air.</span>
-						<span class="lang-en">Seated at the very stern. They bounce their weight rhythmically up and down to exploit the natural elasticity of the single-log wood, propelling the stern forward so the boat glides faster over waves.</span>
-					</p>
-				</div>
-
-				<!-- Content 3: Tukang Tari -->
-				<div class="tab-pane" id="pane-tari">
-					<h3 class="pane-title">
-						<span class="lang-id">Tukang Tari — Penyeimbang Haluan</span>
-						<span class="lang-en">Tukang Tari — The Prow Balancing Dancer</span>
-					</h3>
-					<p class="pane-text">
-						<span class="lang-id">Berdiri bebas tanpa pengaman di ujung haluan perahu yang sempit dan bergoyang. Ia melakukan tarian adat penuh keseimbangan di tengah cipratan ombak deras, sebagai tanda visual visualisasi laju kecepatan maksimal.</span>
-						<span class="lang-en">Stands unsecured on the narrow, high-motion tip of the prow. Performing a graceful traditional balancing dance amidst rapids, they serve as a visual indicator of maximum speed and river alignment.</span>
-					</p>
-				</div>
-
-				<!-- Content 4: Tukang Pinggang -->
-				<div class="tab-pane" id="pane-pinggang">
-					<h3 class="pane-title">
-						<span class="lang-id">Tukang Pinggang — Kemudi Tengah & Buritan</span>
-						<span class="lang-en">Tukang Pinggang — The Steersman</span>
-					</h3>
-					<p class="pane-text">
-						<span class="lang-id">Berada di bagian tengah dan belakang perahu untuk mengarahkan haluan. Memegang dayung panjang sebagai kemudi dinamis agar perahu tetap stabil dan lurus di lintasannya, menghindari tabrakan di tengah arus deras Tepian Narosa.</span>
-						<span class="lang-en">Positioned along the middle and rear to steer the giant canoe. Using long oars as rudders, they maintain straight-line stability in heavy river currents, preventing high-speed collisions.</span>
-					</p>
+					<!-- Visual Reference Badge - Sized down to prevent cramping -->
+					<div class="relative w-32 h-32 xl:w-36 xl:h-36 flex items-center justify-center mx-auto xl:mx-0 shrink-0">
+						<div class="absolute inset-[-10px] bg-gradient-radial from-[#E5A93B]/15 to-transparent rounded-full filter blur-[10px] animate-pulse"></div>
+						<div class="w-full h-full rounded-full border-4 border-white bg-gradient-radial from-white to-[#F4F3EE] shadow-md overflow-hidden flex items-center justify-center transition-all duration-400">
+							<div class="w-[80%] h-[80%] transition-transform duration-500 hover:scale-110 hover:rotate-6" id="roleVectorBadge">
+								<!-- Injected SVG icon -->
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
+<style>
+	/* Custom styles that aren't natively covered or easier to declare in Tailwind v4 utilities */
+
+	/* Centered pins block */
+	.hotspot-pin {
+		transform: translate(-50%, -50%);
+	}
+	.hotspot-pin:hover, .hotspot-pin.active {
+		transform: translate(-50%, -50%) scale(1.2) !important;
+	}
+
+	/* Pulsing rings for hotspots */
+	.pulse-ring {
+		position: absolute;
+		top: -6px;
+		left: -6px;
+		right: -6px;
+		bottom: -6px;
+		border: 2px solid #E5A93B;
+		border-radius: 50%;
+		opacity: 0;
+		z-index: 1;
+		animation: hotspotPulse 2s cubic-bezier(0.25, 0, 0, 1) infinite;
+		pointer-events: none;
+	}
+
+	@keyframes hotspotPulse {
+		0% {
+			transform: scale(0.85);
+			opacity: 0.8;
+		}
+		100% {
+			transform: scale(1.65);
+			opacity: 0;
+		}
+	}
+</style>
+
 <script>
-	// ponytail: interactive anatomy tabs
-	const tabButtons = document.querySelectorAll('.tab-btn');
-	const tabPanes = document.querySelectorAll('.tab-pane');
+	import Panzoom from '@panzoom/panzoom';
 
-	tabButtons.forEach(btn => {
-		btn.addEventListener('click', () => {
-			const tabId = btn.getAttribute('data-tab');
-			if (!tabId) return;
+	// Complete Database of Role Details (Bilingual)
+	const roleDatabase = {
+		tari: {
+			num: "01",
+			type: {
+				id: "PERAN DEPAN (HALUAN)",
+				en: "FRONT ROLE (PROW)"
+			},
+			title: {
+				id: "Togak Luan / Tukang Tari (Anak Coki)",
+				en: "Togak Luan / Prow Dancer"
+			},
+			desc: {
+				id: `Berdiri gagah tanpa pengaman di ujung haluan perahu yang bergoyang. Peran ini biasanya diperankan oleh penari cilik (anak coki) yang bertugas menari ketika perahu unggul di lintasan.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Perilaku Taktis</strong>: Hanya menari ketika jalurnya unggul. Jika tertinggal, ia akan duduk tenang. Di saat darurat, anak Togak Luan siap melompat ke sungai untuk mengurangi beban perahu agar melaju lebih cepat.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Makna Tarian Togak Luan</strong>:
+					 			<ul class="space-y-2 mt-2 ml-4 list-none">
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Lambaian ke sungai</em>: Penghormatan sakral kepada Batang Kuantan yang menghidupi adat.</span>
+					 				</li>
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Langkah lincah</em>: Melambangkan ketangkasan, kegesitan, dan keberanian masyarakat pesisir.</span>
+					 				</li>
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Tangan terbuka ke atas</em>: Simbol rasa syukur mendalam atas keselamatan dan berkah hidup.</span>
+					 				</li>
+					 			</ul>
+					 		</span>
+					 	</li>
+					 </ul>`,
+				en: `Stands fearlessly without harness on the very tip of the narrow, high-motion prow. This role is performed by a young dancer (anak coki) who dances when the canoe takes the lead.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Tactical Action</strong>: They only perform when their canoe is leading. If falling behind, they sit quietly. In critical race phases, they can jump into the river to lighten the boat's weight.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Meaning of the Prow Dance</strong>:
+					 			<ul class="space-y-2 mt-2 ml-4 list-none">
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Waving towards the river</em>: A sacred tribute to the Kuantan River (Batang Kuantan) which sustains local traditions.</span>
+					 				</li>
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Nimble steps</em>: Representing the agility, swiftness, and courage of coastal communities.</span>
+					 				</li>
+					 				<li class="flex items-start gap-2">
+					 					<span class="text-[#C83E4D] font-bold text-base leading-none mt-0.5">-</span>
+					 					<span class="text-[#5C6B69] text-base font-medium"><em>Open arms raised</em>: A symbol of profound gratitude for safety and life's blessings.</span>
+					 				</li>
+					 			</ul>
+					 		</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<path d="M 50,45 C 50,45 60,35 65,37" stroke="#0C3E3B" stroke-width="4.5" stroke-linecap="round" />
+				<path d="M 50,45 C 50,45 35,42 32,48" stroke="#0C3E3B" stroke-width="4.5" stroke-linecap="round" />
+				<circle cx="50" cy="30" r="8" fill="#C83E4D" />
+				<path d="M 45,55 L 55,55 L 58,45 L 42,45 Z" fill="#0C3E3B" />
+				<path d="M 46,55 L 42,75" stroke="#0C3E3B" stroke-width="5" stroke-linecap="round" />
+				<path d="M 54,55 C 57,60 62,64 60,72" stroke="#0C3E3B" stroke-width="5" stroke-linecap="round" />
+			</svg>`
+		},
+		concang: {
+			num: "02",
+			type: {
+				id: "PERAN TENGAH (PEMBERI ABA-ABA)",
+				en: "MIDDLE ROLE (PACE COMMANDER)"
+			},
+			title: {
+				id: "Tukang Concang",
+				en: "Tukang Concang / Pace Commander"
+			},
+			desc: {
+				id: `Berdiri di bagian tengah-depan perahu. Tukang Concang bertindak sebagai 'dirigen' atau komandan ritme tim.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Fungsi Utama</strong>: Meneriakkan aba-aba penyemangat dan menepuk bilah perahu secara konstan untuk menyamakan frekuensi kayuhan puluhan Anak Pacu.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Peran Strategis</strong>: Ketajaman insting Tukang Concang menentukan kapan tim harus menghemat tenaga dan kapan harus melepaskan kayuhan cepat untuk menyalip lawan.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Filosofi</strong>: Melambangkan kepemimpinan terarah, kejelasan komunikasi, dan pemegang komando dalam perjuangan bersama.</span>
+					 	</li>
+					 </ul>`,
+				en: `Positioned in the middle-front section of the canoe. Tukang Concang acts as the conductor or rhythm commander of the team.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Primary Function</strong>: Shouting motivational signals and rhythmically clapping the canoe's gunwale to synchronize the paddle rate of the entire crew.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Strategic Value</strong>: Their sharp instinct dictates when the team should conserve stamina and when to unleash explosive bursts of rowing to overtake opponents.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Philosophy</strong>: Embodies clear, structured leadership, effective communication, and the unified command required in collective struggles.</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<path d="M 35,55 L 45,55 L 55,65 L 55,35 L 45,45 L 35,45 Z" fill="#0C3E3B" />
+				<path d="M 62,42 C 65,45 65,55 62,58" stroke="#C83E4D" stroke-width="3.5" stroke-linecap="round" />
+				<path d="M 68,36 C 73,42 73,58 68,64" stroke="#E5A93B" stroke-width="3.5" stroke-linecap="round" />
+			</svg>`
+		},
+		jalur: {
+			num: "03",
+			type: {
+				id: "STRUKTUR PERAHU (JALUR)",
+				en: "BOAT STRUCTURE (JALUR)"
+			},
+			title: {
+				id: "Jalur (Perahu Gelondongan Tunggal)",
+				en: "Jalur Canoe / The Hull"
+			},
+			desc: {
+				id: `Perahu tradisional legendaries sepanjang 25 hingga 30 meter yang diukir utuh dari satu batang pohon raksasa tanpa sambungan sama sekali.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Metode Pembuatan Tradisional</strong>: Batang pohon utuh dilubangi, dibakar dengan ritual adat untuk melebarkan lambungnya, dan diraut dengan presisi aerodinamis yang sangat tinggi oleh pengrajin ahli (Tukang Jalur).</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Kelenturan Kayu Tunggal</strong>: Karena tidak memiliki sambungan paku atau lem, badan kayu tunggal ini memiliki daya lentur alami yang sangat elastis. Hal ini dimanfaatkan oleh Tukang Onjai untuk membuat perahu melompat-lompat meluncur di atas ombak air.</span>
+					 	</li>
+					 </ul>`,
+				en: `A legendary traditional canoe spanning 25 to 30 meters, carved from a single, giant, seamless log of hardwood.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Traditional Craftsmanship</strong>: Hallowed out from a massive tree trunk, treated with sacred fire ceremonies to expand the hull, and planed with high hydrodynamic precision by master boatbuilders (Tukang Jalur).</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Single-Log Elasticity</strong>: Lacking joineries, glue, or nails, the solid wood hull possesses a natural elasticity. This allows it to flex under the rhythmic weight of the crew, literally hopping forward over river swells.</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<path d="M 15,48 C 30,58 70,58 85,48 C 80,44 65,40 50,40 C 35,40 20,44 15,48 Z" fill="#0C3E3B" />
+				<path d="M 10,48 C 8,43 5,30 15,25" stroke="#E5A93B" stroke-width="3" />
+				<path d="M 90,48 C 92,43 95,30 85,25" stroke="#E5A93B" stroke-width="3" />
+			</svg>`
+		},
+		crew: {
+			num: "04",
+			type: {
+				id: "TENAGA UTAMA (DAYUNG INTI)",
+				en: "CORE ENGINE (ROWING TEAM)"
+			},
+			title: {
+				id: "Anak Pacu (Pendayung)",
+				en: "Anak Pacu / Rowers"
+			},
+			desc: {
+				id: `Mesin penggerak utama perahu Jalur. Terdiri dari 40 hingga 60 atlet pendayung terlatih yang duduk berderet sepanjang badan perahu.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Tanggung Jawab</strong>: Menghasilkan daya dorong kinetik maksimal melalui kayuhan serentak yang membelah aliran air sungai.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Faktor Kemenangan</strong>: Keberhasilan tidak ditentukan oleh ego individu. Kayuhan yang selaras dan serempak adalah satu-satunya kunci memenangkan kompetisi.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Filosofi</strong>: Representasi sejati dari nilai gotong royong, kerja keras kolektif, kesetaraan peran, dan perjuangan satu arah.</span>
+					 	</li>
+					 </ul>`,
+				en: `The main engine propelling the Jalur canoe. Comprises 40 to 60 athletic, highly trained rowers seated in pairs along the hull.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Responsibility</strong>: Generating maximum kinetic propulsion through synchronized strokes that cut through the river rapids.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Winning Factor</strong>: Success is not dictated by individual ego. Synchronized, matching strokes are the only key to winning.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Philosophy</strong>: The true representation of mutual cooperation (gotong royong), collective hard work, equality, and single-minded focus.</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<path d="M 32,58 C 38,55 45,55 52,58 C 58,61 65,61 71,58" stroke="#0C3E3B" stroke-width="4.5" stroke-linecap="round" />
+				<path d="M 28,45 C 34,42 41,42 48,45 C 54,48 61,48 67,45" stroke="#C83E4D" stroke-width="4.5" stroke-linecap="round" />
+				<path d="M 35,70 C 40,68 46,68 51,70 C 56,72 62,72 67,70" stroke="#0C3E3B" stroke-width="3.5" stroke-linecap="round" />
+			</svg>`
+		},
+		dayung: {
+			num: "05",
+			type: {
+				id: "INSTRUMEN KAYUH (DAYUNG)",
+				en: "ROWING INSTRUMENT (OAR)"
+			},
+			title: {
+				id: "Dayung Tradisional",
+				en: "Traditional Oar / Dayung"
+			},
+			desc: {
+				id: `Alat kayuh berbahan kayu ringan namun sangat kokoh, dirancang khusus untuk membelah arus sungai yang deras.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Desain Khusus</strong>: Bilah dayung Pacu Jalur dirancang tipis dan ramping agar meminimalkan resistensi udara saat diangkat, namun lebar di ujung bawahnya untuk menyapu air secara maksimal saat terendam.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Kustomisasi Pribadi</strong>: Setiap Anak Pacu memiliki ukuran dayung yang disesuaikan dengan jangkauan tangan dan posisi duduk mereka di perahu untuk efisiensi kayuhan tertinggi.</span>
+					 	</li>
+					 </ul>`,
+				en: `A specialized oar made from lightweight yet extremely durable wood, engineered specifically to slice through fast river currents.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Sleek Design</strong>: The paddle blades are thin and narrow to minimize wind resistance when raised, yet taper wide at the tip to grab and push maximum water volume per stroke.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Personalized Customization</strong>: Each rower has their own oar sized to fit their arm span and exact seating height to unlock maximum biomechanical leverage.</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<line x1="25" y1="75" x2="75" y2="25" stroke="#0C3E3B" stroke-width="5" stroke-linecap="round" />
+				<polygon points="70,22 80,30 68,42 58,34" fill="#E5A93B" />
+				<line x1="25" y1="25" x2="75" y2="75" stroke="#C83E4D" stroke-width="5" stroke-linecap="round" />
+				<polygon points="70,78 80,70 58,66 68,58" fill="#E5A93B" />
+			</svg>`
+		},
+		pinggang: {
+			num: "06",
+			type: {
+				id: "PERAN BELAKANG (PEMBERI IRAMA BURITAN)",
+				en: "REAR ROLE (STERN RHYTHM MASTER)"
+			},
+			title: {
+				id: "Tukang Onjai",
+				en: "Tukang Onjai / Stern Rhythm Master"
+			},
+			desc: {
+				id: `Berdiri tegap di ujung paling belakang (buritan) perahu. **Tukang Onjai tidak memegang dayung (paddle)** sama sekali demi memfokuskan seluruh tenaga pada gerakan kinetik perahu.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Fungsi Kinetik</strong>: Bertugas menggoyang-goyangkan badannya secara ritmis naik-turun. Gerakan mengayun ini memanfaatkan daya lentur alami kayu log tunggal perahu (Jalur) untuk mendorong buritan ke depan, membuat perahu meluncur lebih cepat seolah-olah melompat di atas air.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Filosofi</strong>: Melambangkan dorongan motivasi, keseimbangan dinamis dalam menghadapi rintangan, dan pendorong energi tambahan di saat-saat kritis lintasan.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Tanpa Dayung</strong>: Tangan Tukang Onjai dibebaskan (tidak memegang dayung) dan hanya direntangkan untuk menjaga keseimbangan tubuhnya saat melakukan gerakan onjai (bouncing) ekstrem di buritan.</span>
+					 	</li>
+					 </ul>`,
+				en: `Stands at the very stern (rear tip) of the boat. **Tukang Onjai does not hold a paddle (dayung)** to focus their entire energy on the boat's kinetic response.
+					 <ul class="space-y-4 mt-4 list-none text-left">
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Kinetic Function</strong>: Responsible for bouncing their body weight rhythmically up and down. This motion exploits the natural elasticity of the single-log wood (Jalur) to propel the stern forward, letting the boat glide over river ripples.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>Philosophy</strong>: Symbolizes motivational thrust, dynamic balance in overcoming obstacles, and an energy catalyst during race moments.</span>
+					 	</li>
+					 	<li class="flex items-start gap-2.5">
+					 		<span class="text-[#E5A93B] font-bold text-lg leading-none mt-0.5">•</span>
+					 		<span class="text-[#5C6B69] text-base font-medium"><strong>No Paddle</strong>: Their hands are kept free (not holding a paddle) and are extended solely for balance while performing extreme bouncing actions on the narrow stern.</span>
+					 	</li>
+					 </ul>`
+			},
+			badge: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="50" cy="50" r="45" stroke="#E5A93B" stroke-width="3" stroke-dasharray="6,4" />
+				<!-- Bouncing wave ripples representing kinetic body weight motion -->
+				<path d="M 25,45 C 35,35 45,55 55,45 C 65,35 75,55 75,55" stroke="#0C3E3B" stroke-width="4.5" stroke-linecap="round" fill="none" />
+				<path d="M 25,60 C 35,50 45,70 55,60 C 65,50 75,70 75,70" stroke="#C83E4D" stroke-width="4.5" stroke-linecap="round" fill="none" />
+				<path d="M 35,30 Q 50,15 65,30" stroke="#E5A93B" stroke-width="3.5" fill="none" stroke-linecap="round" />
+			</svg>`
+		}
+	};
 
-			// Deactivate other tabs
-			tabButtons.forEach(b => b.classList.remove('active'));
-			tabPanes.forEach(p => p.classList.remove('active'));
+	// DOM Elements Selection
+	const hotspots = document.querySelectorAll('.hotspot-pin');
+	const roleTabs = document.querySelectorAll('.role-tab');
+	const cardWatermark = document.getElementById('cardWatermark');
+	const cardRoleType = document.getElementById('cardRoleType');
+	const cardRoleTitle = document.getElementById('cardRoleTitle');
+	const cardDescBody = document.getElementById('cardDescBody');
+	const roleVectorBadge = document.getElementById('roleVectorBadge');
+	
+	const boatViewerScroll = document.getElementById('boatViewerScroll');
+	const boatPerspective = document.getElementById('boatPerspective');
+	const scrollProgress = document.querySelector('.scroll-progress');
 
-			// Activate selected
-			btn.classList.add('active');
-			const pane = document.getElementById(`pane-${tabId}`);
-			if (pane) pane.classList.add('active');
+	// Active role state
+	let activeRole = 'tari';
+
+	// Function to update the information board
+	function selectRole(roleId) {
+		if (!roleDatabase[roleId]) return;
+		activeRole = roleId;
+		const data = roleDatabase[roleId];
+
+		// Update watermarks and text headers
+		if (cardWatermark) cardWatermark.textContent = data.num;
+		
+		// Set bilingual title
+		if (cardRoleTitle) {
+			cardRoleTitle.innerHTML = `
+				<span class="lang-id">${data.title.id}</span>
+				<span class="lang-en">${data.title.en}</span>
+			`;
+		}
+
+		// Set bilingual category label
+		if (cardRoleType) {
+			cardRoleType.innerHTML = `
+				<span class="lang-id">${data.type.id}</span>
+				<span class="lang-en">${data.type.en}</span>
+			`;
+		}
+
+		// Set bilingual description
+		if (cardDescBody) {
+			cardDescBody.innerHTML = `
+				<div class="lang-id">${data.desc.id}</div>
+				<div class="lang-en">${data.desc.en}</div>
+			`;
+		}
+
+		// Inject SVG illustration into badge
+		if (roleVectorBadge) {
+			roleVectorBadge.innerHTML = data.badge;
+		}
+
+		// 1. Update Active Tab styling (using Tailwind classes directly for clean state)
+		roleTabs.forEach(tab => {
+			if (tab.getAttribute('data-role') === roleId) {
+				tab.classList.add('bg-[#0C3E3B]', 'text-white', 'border-[#0C3E3B]');
+				tab.classList.remove('bg-white', 'text-black', 'border-[#0C3E3B]/5');
+				
+				const numSpan = tab.querySelector('.role-num');
+				if (numSpan) {
+					numSpan.classList.add('text-[#E5A93B]', 'opacity-100');
+					numSpan.classList.remove('opacity-45');
+				}
+			} else {
+				tab.classList.remove('bg-[#0C3E3B]', 'text-white', 'border-[#0C3E3B]');
+				tab.classList.add('bg-white', 'text-black', 'border-[#0C3E3B]/5');
+				
+				const numSpan = tab.querySelector('.role-num');
+				if (numSpan) {
+					numSpan.classList.remove('text-[#E5A93B]', 'opacity-100');
+					numSpan.classList.add('opacity-45');
+				}
+			}
+		});
+
+		// 2. Update Active hotspot styling (using Tailwind classes directly for clean state)
+		hotspots.forEach(hotspot => {
+			if (hotspot.getAttribute('data-pin') === roleId) {
+				hotspot.classList.add('active', 'scale-110', 'bg-[#C83E4D]', 'ring-4', 'ring-[#C83E4D]/30');
+				hotspot.classList.remove('bg-[#0C3E3B]');
+				
+				// Run centering with error protection
+				try {
+					centerHotspotInView(hotspot);
+				} catch (err) {
+					console.error("Failed to center hotspot:", err);
+				}
+			} else {
+				hotspot.classList.remove('active', 'scale-110', 'bg-[#C83E4D]', 'ring-4', 'ring-[#C83E4D]/30');
+				hotspot.classList.add('bg-[#0C3E3B]');
+			}
+		});
+
+		// 3. Trigger card transition animation
+		const card = document.querySelector('.anatomy-content-card');
+		if (card) {
+			card.style.transform = 'scale(0.98)';
+			card.style.opacity = '0.7';
+			setTimeout(() => {
+				card.style.transform = 'scale(1)';
+				card.style.opacity = '1';
+			}, 100);
+		}
+	}
+
+	// Helper to center active hotspot horizontally using Panzoom
+	function centerHotspotInView(hotspotElement) {
+		if (!panzoomInstance || !hotspotElement) return;
+		
+		const viewerRect = boatViewerScroll.getBoundingClientRect();
+		const hotspotLeft = hotspotElement.offsetLeft;
+		
+		// Target X to center the hotspot
+		const targetX = (viewerRect.width / 2) - hotspotLeft;
+		
+		// Pan smoothly to the target X coordinate
+		panzoomInstance.pan(targetX, 0, { animate: true });
+	}
+
+	// Add event listeners to Hotspot Pins
+	hotspots.forEach(pin => {
+		pin.addEventListener('click', () => {
+			const roleId = pin.getAttribute('data-pin');
+			if (roleId) selectRole(roleId);
 		});
 	});
+
+	// Add event listeners to Selector Tabs
+	roleTabs.forEach(tab => {
+		tab.addEventListener('click', () => {
+			const roleId = tab.getAttribute('data-role');
+			if (roleId) selectRole(roleId);
+		});
+	});
+
+
+
+	// 2. PANZOOM FOR SMOOTH DRAG & ZOOM
+	let panzoomInstance;
+	if (boatPerspective && boatViewerScroll) {
+		panzoomInstance = Panzoom(boatPerspective, {
+			maxScale: 2.5,
+			minScale: 1,
+			contain: 'outside',
+			cursor: 'grab',
+			disableY: true, // Lock vertical panning
+			startX: 0,      // Start aligned to the left (bow visible)
+		});
+
+		// Enable zooming using mouse wheel (holding Ctrl to avoid scroll trap)
+		boatViewerScroll.addEventListener('wheel', (e) => {
+			if (e.ctrlKey) {
+				e.preventDefault();
+				panzoomInstance.zoomWithWheel(e);
+			}
+		});
+
+		// Sync scroll progress bar on pan/zoom change
+		boatPerspective.addEventListener('panzoomchange', () => {
+			const pan = panzoomInstance.getPan();
+			const scale = panzoomInstance.getScale();
+			
+			// Calculate the scrollable range width
+			const containerWidth = boatViewerScroll.clientWidth;
+			const contentWidth = 1600 * scale; // 1600px is the base width of our wrapper
+			const maxScroll = contentWidth - containerWidth;
+			
+			if (maxScroll > 0) {
+				// Pan x is negative when dragged to the left
+				const currentPanX = Math.abs(pan.x);
+				const percentage = Math.min(100, Math.max(0, (currentPanX / maxScroll) * 100));
+				scrollProgress.style.width = `${percentage}%`;
+			} else {
+				scrollProgress.style.width = '0%';
+			}
+		});
+	}
+
+	// Initialize with first role load
+	selectRole('tari');
 </script>
