@@ -8,33 +8,41 @@
 		<!-- Section Header -->
 		<div class="text-center max-w-[800px] mx-auto">
 			<span class="text-xs font-extrabold text-[#C83E4D] tracking-[0.2em] block mb-2 uppercase">(ANATOMI PERAHU)</span>
-			<h2 class="text-4xl md:text-[2.75rem] font-extrabold text-[#0C3E3B] leading-tight tracking-tight">
-				<span class="lang-id">Anatomi & Filosofi Peran Jalur</span>
-				<span class="lang-en">Anatomy & Philosophy of Jalur Roles</span>
+			<h2 class="text-4xl md:text-[2.75rem] font-extrabold text-[#0C3E3B] leading-tight tracking-tight text-balance">
+				<span class="lang-id">Anatomi dan Filosofi Peran Jalur</span>
+				<span class="lang-en">Anatomy and Philosophy of Jalur Roles</span>
 			</h2>
-			<p class="text-[#5C6B69] text-base md:text-[1.05rem] leading-relaxed mt-4 font-medium">
-				<span class="lang-id">Pacu Jalur bukan sekadar balapan; ia adalah simfoni keselarasan peran di atas air. Geser perahu dan klik pin interaktif untuk mempelajari fungsi serta makna mendalam setiap peran:</span>
-				<span class="lang-en">Pacu Jalur is not just a race; it is a symphony of role alignment on water. Scroll the boat and click the interactive pins to learn the function and meaning of each role:</span>
+			<p class="text-[#5C6B69] text-base md:text-[1.05rem] leading-relaxed mt-4 font-medium text-balance">
+				<span class="lang-id">Pacu Jalur bukan sekadar balapan; ia adalah simfoni keselarasan peran di atas air.<br class="hidden md:inline" />Geser perahu dan klik pin interaktif untuk mempelajari fungsi serta makna mendalam setiap peran:</span>
+				<span class="lang-en">Pacu Jalur is not just a race; it is a symphony of role alignment on water.<br class="hidden md:inline" />Scroll the boat and click the interactive pins to learn the function and meaning of each role:</span>
 			</p>
 		</div>
 
 		<!-- Interactive 3D Perspective Boat Viewer Area -->
 		<div class="w-full relative boat-interactive-container">
 			<!-- Scroll Hint -->
-			<div class="flex flex-col items-center gap-2 mb-5 opacity-90 select-none">
-				<span class="text-[0.8rem] font-bold text-[#5C6B69] tracking-wider uppercase">
-					<span class="lang-id">← Geser secara horizontal untuk melihat seluruh perahu (25-30 Meter) →</span>
-					<span class="lang-en">← Scroll horizontally to see the entire boat (25-30 Meters) →</span>
-				</span>
+			<div class="flex flex-col items-center gap-3 mb-5 opacity-90 select-none">
+				<div class="flex items-center gap-3 text-[0.8rem] font-bold text-[#5C6B69] tracking-wider uppercase">
+					<!-- Left Arrow SVG -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+					
+					<span>
+						<span class="lang-id">Geser secara horizontal untuk melihat seluruh perahu (25-30 Meter)</span>
+						<span class="lang-en">Scroll horizontally to see the entire boat (25-30 Meters)</span>
+					</span>
+					
+					<!-- Right Arrow SVG -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+				</div>
 				<div class="w-[120px] h-[3px] bg-[#0C3E3B]/10 rounded-full overflow-hidden relative">
 					<div class="absolute left-0 top-0 h-full w-[30%] bg-[#E5A93B] rounded-full transition-all duration-100 scroll-progress"></div>
 				</div>
 			</div>
 
 			<!-- Widescreen Viewer Frame - Heights and widths perfectly matched with relative parent to resolve Panzoom containment lock -->
-			<div class="w-full h-[400px] relative overflow-hidden cursor-grab rounded-2xl bg-white/45 border border-white/50 backdrop-blur-md shadow-[inset_0_2px_10px_rgba(12,62,59,0.02)] boat-viewer-scroll" id="boatViewerScroll">
-				<div class="w-[1600px] h-[400px] boat-perspective-wrapper" id="boatPerspective">
-					<div class="relative w-[1600px] h-[400px] boat-canvas-container">
+			<div class="w-full h-[400px] relative overflow-x-auto overflow-y-hidden scroll-smooth rounded-2xl bg-white/45 border border-white/50 backdrop-blur-md shadow-[inset_0_2px_10px_rgba(12,62,59,0.02)] boat-viewer-scroll" id="boatViewerScroll">
+				<div class="boat-perspective-wrapper" id="boatPerspective" style="width: 1600px; min-width: 1600px; height: 400px;">
+					<div class="relative boat-canvas-container" style="width: 1600px; min-width: 1600px; height: 400px;">
 						<!-- Detailed SVG Boat Illustration -->
 						<svg class="w-full h-full block select-none pointer-events-none" viewBox="0 0 1600 400" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -417,6 +425,15 @@
 <style>
 	/* Custom styles that aren't natively covered or easier to declare in Tailwind v4 utilities */
 
+	/* Hide default scrollbar */
+	.boat-viewer-scroll {
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+	}
+	.boat-viewer-scroll::-webkit-scrollbar {
+		display: none;  /* Chrome, Safari, Opera */
+	}
+
 	/* Centered pins block */
 	.hotspot-pin {
 		transform: translate(-50%, -50%);
@@ -453,7 +470,6 @@
 </style>
 
 <script>
-	import Panzoom from '@panzoom/panzoom';
 
 	// Complete Database of Role Details (Bilingual)
 	const roleDatabase = {
@@ -871,18 +887,18 @@
 		}
 	}
 
-	// Helper to center active hotspot horizontally using Panzoom
+	// Helper to center active hotspot horizontally using native scrolling
 	function centerHotspotInView(hotspotElement) {
-		if (!panzoomInstance || !hotspotElement) return;
+		if (!boatViewerScroll || !hotspotElement) return;
 		
-		const viewerRect = boatViewerScroll.getBoundingClientRect();
+		const containerWidth = boatViewerScroll.clientWidth;
 		const hotspotLeft = hotspotElement.offsetLeft;
 		
-		// Target X to center the hotspot
-		const targetX = (viewerRect.width / 2) - hotspotLeft;
+		// Target Left to center the hotspot in viewport
+		const targetScrollLeft = hotspotLeft - (containerWidth / 2);
 		
-		// Pan smoothly to the target X coordinate
-		panzoomInstance.pan(targetX, 0, { animate: true });
+		// Scroll smoothly to the target position
+		boatViewerScroll.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
 	}
 
 	// Add event listeners to Hotspot Pins
@@ -901,46 +917,13 @@
 		});
 	});
 
-
-
-	// 2. PANZOOM FOR SMOOTH DRAG & ZOOM
-	let panzoomInstance;
-	if (boatPerspective && boatViewerScroll) {
-		panzoomInstance = Panzoom(boatPerspective, {
-			maxScale: 2.5,
-			minScale: 1,
-			contain: 'outside',
-			cursor: 'grab',
-			disableY: true, // Lock vertical panning
-			startX: 0,      // Start aligned to the left (bow visible)
-		});
-
-		// Enable zooming using mouse wheel (holding Ctrl to avoid scroll trap)
-		boatViewerScroll.addEventListener('wheel', (e) => {
-			if (e.ctrlKey) {
-				e.preventDefault();
-				panzoomInstance.zoomWithWheel(e);
-			}
-		});
-
-		// Sync scroll progress bar on pan/zoom change
-		boatPerspective.addEventListener('panzoomchange', () => {
-			const pan = panzoomInstance.getPan();
-			const scale = panzoomInstance.getScale();
-			
-			// Calculate the scrollable range width
-			const containerWidth = boatViewerScroll.clientWidth;
-			const contentWidth = 1600 * scale; // 1600px is the base width of our wrapper
-			const maxScroll = contentWidth - containerWidth;
-			
-			if (maxScroll > 0) {
-				// Pan x is negative when dragged to the left
-				const currentPanX = Math.abs(pan.x);
-				const percentage = Math.min(100, Math.max(0, (currentPanX / maxScroll) * 100));
-				scrollProgress.style.width = `${percentage}%`;
-			} else {
-				scrollProgress.style.width = '0%';
-			}
+	// Native scroll sync with progress bar
+	if (boatViewerScroll && scrollProgress) {
+		boatViewerScroll.addEventListener('scroll', () => {
+			const scrollLeft = boatViewerScroll.scrollLeft;
+			const maxScroll = boatViewerScroll.scrollWidth - boatViewerScroll.clientWidth;
+			const percentage = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+			scrollProgress.style.width = `${percentage}%`;
 		});
 	}
 
